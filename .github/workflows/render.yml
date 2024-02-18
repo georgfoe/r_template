@@ -12,8 +12,7 @@ jobs:
 
       - name: Install packages from file
         run: |
-          packages <- readLines('r-packages.txt')
-          install.packages(packages)
+          Rscript -e "packages <- readLines('r-packages.txt');install.packages(packages)"
 
       - name: Run main.r
         run: Rscript -e 'source("main.r")'
