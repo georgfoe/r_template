@@ -21,10 +21,10 @@ jobs:
       - name: run main.r
         run: Rscript -e 'source("main.r")'
 
-      - name: Commit results
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          git add output
-          git commit -m 'output' || echo "No changes to commit"
-          git push origin || echo "No changes to commit"
+      - name: Run the Action
+        uses: devops-infra/action-commit-push@master
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          commit_prefix: "[AUTO]"
+          commit_message: "Output neu erstellt"
+          force: false
