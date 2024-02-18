@@ -1,6 +1,4 @@
-on:
-  push:
-    branches: main
+on: push
 
 jobs:
   run_script:
@@ -25,6 +23,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          branch_name=$(git symbolic-ref --short HEAD)
           git add ./output/*
           git commit -m "Automatically update output" -a || echo "No changes to commit"
           git push
