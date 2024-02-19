@@ -1,3 +1,2 @@
-fileConn<-file("output/output.txt")
-writeLines(c("Hello","World"), fileConn)
-close(fileConn)
+sink("output/output.txt")
+dir()
