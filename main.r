@@ -1,3 +1,3 @@
 fileConn<-file("output/output.txt")
-writeLines(c("Hello","World"), fileConn)
+writeLines(c("Ciao","World"), fileConn)
 close(fileConn)
