@@ -1,0 +1,25 @@
+---
+title: "Statistische Auswertung mit ggplot"
+format: html
+---
+
+# Meine ggplot Analyse
+
+Dies ist eine einfache Darstellung einer ggplot-Grafik, die aus R generiert wurde. 
+
+```{r}
+# Lade die erforderlichen Bibliotheken
+library(ggplot2)
+library(dplyr)
+
+# Erstelle einen einfachen Datensatz
+daten <- data.frame(
+  Kategorie = factor(c("A", "B", "C", "D")),
+  Wert = c(23, 45, 67, 89)
+)
+
+# Erstelle eine ggplot Grafik
+ggplot(daten, aes(x=Kategorie, y=Wert, fill=Kategorie)) +
+  geom_bar(stat="identity") +
+  theme_minimal() +
+  labs(title="Einfache ggplot Grafik", x="Kategorie", y="Wert")
