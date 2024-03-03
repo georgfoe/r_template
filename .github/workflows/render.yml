@@ -9,24 +9,20 @@ jobs:
 
       - name: Cache R packages
         uses: actions/cache@v2
-        env:
-          R_VERSION: '4.1' # Beispiel für eine spezifische R-Version, anpassen nach Bedarf
-          CRAN_MIRROR: 'https://cloud.r-project.org' # Standard-CRAN-Mirror, anpassen nach Bedarf
         with:
           path: |
             ${{ env.R_LIBS_USER }}
             /usr/local/lib/R/site-library
             /usr/lib/R/site-library
             /usr/lib/R/library
-          key: ${{ runner.os }}-r-${{ env.R_VERSION }}-${{ hashFiles('**/DESCRIPTION', '**/NAMESPACE', '**/*.R', '**/*.r') }}
+          key: ${{ runner.os }}-r-${{ hashFiles('**/DESCRIPTION', '**/NAMESPACE', '**/*.R', '**/*.r') }}
           restore-keys: |
-            ${{ runner.os }}-r-${{ env.R_VERSION }}-
+            ${{ runner.os }}-r-
 
       - name: Set up R
         uses: r-lib/actions/setup-r@v2
         with:
-          r-version: ${{ env.R_VERSION }}
-          cran: ${{ env.CRAN_MIRROR }}
+          r-version: '4.1' # Stellen Sie sicher, dass Sie hier eine gültige R-Version angeben, die Ihrer Anforderung entspricht
 
       - name: Install packages
         uses: r-lib/actions/setup-r-dependencies@v2
