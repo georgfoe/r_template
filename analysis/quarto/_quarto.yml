@@ -1,0 +1,24 @@
+project:
+  type: website
+
+website:
+  title: "Meine Statistische Website"
+  format: html
+  clean: true
+  output-dir: "docs"
+  execute:
+    enabled: true
+
+editor: visual
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 2
+
+# Optional: Globale R-Optionen
+execute:
+  engine: knitr
+  cache: true
+  echo: false
